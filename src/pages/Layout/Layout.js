@@ -1,8 +1,8 @@
 import React from 'react'
-import { makeStyles } from '@material-ui/core';
+import {makeStyles} from '@material-ui/core';
 const useStyles = makeStyles({
     root: {
-        backgroundColor: 'cadetblue',
+        backgroundColor: '#e8471c',
         height: '100%',
         width: '100%',
         display: 'flex',
@@ -12,50 +12,68 @@ const useStyles = makeStyles({
 
 
     },
+    head: {
+        backgroundColor: '#40b2e4',
+        height: '15%',
+        width: '100%',
+        display: 'flex',
+        flexDirection: 'row',
+        alignItems: 'flex-start',
+        justifyContent: 'flex-end'
+       
+
+    },
     formArea: {
-        backgroundColor: 'aliceblue',
-        height: '55%',
-        width: '25em',
+        backgroundColor: 'white',
+        height: '88%',
+        width: '50em',
         display: 'flex',
         flexDirection: 'column',
-        alignItems:'center',
-        justifyContent: 'center',
+        alignItems: 'center',
+        justifyContent: 'flex-end',
+        padding:'2em'
     },
+
     innerPortion1: {
-        backgroundColor: 'aliceblue',
-        height: '20%',
-        width: '100%',
+        backgroundColor: 'grey',
+        height: '65%',
+        width: '80%',
         display: 'flex',
         flexDirection: 'row',
+        alignItems: 'center',
         justifyContent: 'space-around',
+        margin:'2em'
+
     },
     innerPortion2: {
-        backgroundColor: 'aliceblue',
-        height: '20%',
-        width: '100%',
+        backgroundColor: 'grey',
+        height: '65%',
+        width: '80%',
         display: 'flex',
         flexDirection: 'row',
+        alignItems:'center',
         justifyContent: 'space-around',
+        margin:'2em'
     },
     innerPortion3: {
-        backgroundColor: 'aliceblue',
-        height: '20%',
-        width: '100%',
+        backgroundColor: 'grey',
+        height: '65%',
+        width: '80%',
         display: 'flex',
         flexDirection: 'row',
-        justifyContent: 'space-around',
+        alignItems:'center',
+        justifyContent:'space-around',
+        margin:'2em'
     },
 })
 const Layout = () => {
     const classes = useStyles();
     return <div className={classes.root}>
+        <div className={classes.head}></div>
         <div className={classes.formArea}>
-            <div classname={classes.innerPortion1}>
-            </div>
-            <div classname={classes.innerPortion2}>
-            </div>
-            <div classname={classes.innerPortion3}>
-            </div>
+            <div className={classes.innerPortion1}></div>
+            <div className={classes.innerPortion2}></div>
+            <div className={classes.innerPortion3}></div>
         </div>
     </div>
 }
