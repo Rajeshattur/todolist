@@ -25,12 +25,12 @@ const useStyles = makeStyles({
     },
     formArea: {
         backgroundColor: 'white',
-        height: '88%',
+        height: '100%',
         width: '50em',
         display: 'flex',
         flexDirection: 'column',
         alignItems: 'center',
-        justifyContent: 'flex-end',
+        justifyContent: 'space-around',
         padding:'2em'
     },
 
@@ -40,8 +40,6 @@ const useStyles = makeStyles({
         width: '80%',
         display: 'flex',
         flexDirection: 'row',
-        alignItems: 'center',
-        justifyContent: 'space-around',
         margin:'2em'
 
     },
@@ -51,8 +49,6 @@ const useStyles = makeStyles({
         width: '80%',
         display: 'flex',
         flexDirection: 'row',
-        alignItems:'center',
-        justifyContent: 'space-around',
         margin:'2em'
     },
     innerPortion3: {
@@ -61,8 +57,6 @@ const useStyles = makeStyles({
         width: '80%',
         display: 'flex',
         flexDirection: 'row',
-        alignItems:'center',
-        justifyContent:'space-around',
         margin:'2em'
     },
 })
