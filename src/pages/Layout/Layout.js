@@ -36,39 +36,41 @@ const useStyles = makeStyles({
 
     innerPortion1: {
         backgroundColor: 'grey',
-        height: '65%',
+        height: '6em',
         width: '80%',
         display: 'flex',
         flexDirection: 'row',
-        margin:'2em'
+        alignItems:'center',
+        justifyContent:'center'
 
     },
     innerPortion2: {
         backgroundColor: 'grey',
-        height: '65%',
+        height: '6em',
         width: '80%',
         display: 'flex',
         flexDirection: 'row',
-        margin:'2em'
     },
     innerPortion3: {
         backgroundColor: 'grey',
-        height: '65%',
+        height: '6em',
         width: '80%',
         display: 'flex',
         flexDirection: 'row',
-        margin:'2em'
     },
 })
 const Layout = () => {
     const classes = useStyles();
+    const cardArray=['1','2','3','4'];
+    // const cardArray=[{id:'1',name:'rajesh',age:'18'},{id:'2',name:'ajesh',age:'14'},{id:'2',name:'ajesh',age:'14'}];
+   
     return <div className={classes.root}>
         <div className={classes.head}></div>
         <div className={classes.formArea}>
-            <div className={classes.innerPortion1}></div>
-            <div className={classes.innerPortion2}></div>
-            <div className={classes.innerPortion3}></div>
-        </div>
+            {
+              cardArray.map((item)=><div className={classes.innerPortion1}><div>{item.name}</div> 
+                <div>{item.age}</div></div>)} 
+      </div>      
     </div>
 }
 export default Layout;
