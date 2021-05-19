@@ -1,5 +1,5 @@
-import React from 'react'
-import {makeStyles} from '@material-ui/core';
+import React, { useEffect, useState } from 'react'
+import { Button, makeStyles, Paper, TextField } from '@material-ui/core';
 const useStyles = makeStyles({
     root: {
         backgroundColor: '#e8471c',
@@ -20,7 +20,7 @@ const useStyles = makeStyles({
         flexDirection: 'row',
         alignItems: 'flex-start',
         justifyContent: 'flex-end'
-       
+
 
     },
     formArea: {
@@ -31,17 +31,16 @@ const useStyles = makeStyles({
         flexDirection: 'column',
         alignItems: 'center',
         justifyContent: 'space-around',
-        padding:'2em'
+        padding: '2em'
     },
 
     innerPortion1: {
-        backgroundColor: 'grey',
         height: '6em',
         width: '80%',
         display: 'flex',
         flexDirection: 'row',
-        alignItems:'center',
-        justifyContent:'center'
+        alignItems: 'center',
+        justifyContent: 'center'
 
     },
     innerPortion2: {
@@ -61,16 +60,37 @@ const useStyles = makeStyles({
 })
 const Layout = () => {
     const classes = useStyles();
-    const cardArray=['1','2','3','4'];
+    const [title, setTitle] = useState('');
+    const [description, setDescription] = useState('');
+    const addTodo = () => {
+        let formData = {
+            title: title,
+            description: description,
+        }
+        setCardArray([...cardArray,formData]);
+        console.log(formData);
+    }
+    const deleteHandler = (index) => {
+        let tempCardArray=cardArray;
+        tempCardArray.splice(index,1);
+        setCardArray(tempCardArray)
+    }
+    const changeTitle = (e) => { setTitle(e.target.value) }
+    const changeDescription = (e) => { setDescription(e.target.value) }
+    const [cardArray,setCardArray]=useState([]);
+    useEffect(()=>{},[cardArray]);
     // const cardArray=[{id:'1',name:'rajesh',age:'18'},{id:'2',name:'ajesh',age:'14'},{id:'2',name:'ajesh',age:'14'}];
-   
+
     return <div className={classes.root}>
-        <div className={classes.head}></div>
+        <div className={classes.head}>
+            <TextField id="standard-basic" label="Title" onChange={changeTitle}>Title</TextField>
+            <TextField id="standard-basic" label="Description" onChange={changeDescription}>Description</TextField>
+            <Button variant="contained" color="primary" onClick={addTodo}>ADD</Button></div>
         <div className={classes.formArea}>
             {
-              cardArray.map((item)=><div className={classes.innerPortion1}><div>{item.name}</div> 
-                <div>{item.age}</div></div>)} 
-      </div>      
+                cardArray.map((item,index) => <Paper className={classes.innerPortion1}><div>{item.title}</div>
+                    <div>{item.description}</div><Button variant="contained" color="primary" onClick={()=>deleteHandler(index)}>DELETE</Button></Paper>)}
+        </div>
     </div>
 }
 export default Layout;
